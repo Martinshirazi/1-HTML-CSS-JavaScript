@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Practice: CSS Corner Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Italianno&display=swap" rel="stylesheet" >
+    <link rel="stylesheet" href="css/practice-styles.css" />
+</head>
+<body>
+    <h1>CSS Corner Cafe</h1>
+    <div class="text">
+        <p> Welcome to Your Cafe! </p>
+        <p>At CSS Corner Cafe we serve the best CSS coffee in the town.</p>
+        <p>Please let us know how we are doing by leaving a review!</p>
+    </div>
+    <section>
+        <h2 class="header, first">Menu</h2>
+            <table>
+                <thead >
+                    <tr>
+                        <th>Item</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td ><input type="radio" id="Coffee" name="menu" value="Coffee" style="height: 20px; width: 80px" />Coffee</td>
+                        
+                        <td>$2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="Tea" name="menu" value="Tea" style="height: 20px; width: 80px"/> Tea</td>
+                        <td>$1.50</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio"  id="Chicken & Waffles" name="menu" value="Chicken & Waffles" style="height: 20px; width: 80px"/> Chicken & Waffles</td>
+                        <td>$12</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="Blueberry Pancakes" name="menu" value="Blueberry Pancakes" style="height: 20px; width: 80px"/> Blueberry Pancakes</td>
+                        <td>$6</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text">
+                <p>!!More Items will be added to our menu SOON!!</p>
+                <p>Please select your item, rating, and enter your info before submitting.</p>
+            </div>
+    </section>
+    <section>
+        <h2 class="review, second">Submit Your Review</h2>
+        <form action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="post">
+           <div>
+                <label for="firstname">First Name: </label>
+                <input type="text" id="firstname" name="firstname" placeholder="Your First Name" />
+            </div>
+            <div>
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Your Last Name" />
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" />
+            </div>
+            <label for="rating">Your Rating:</label>
+            1 <input type="range" id="rating" name="rating" min="1" max="5" width=/> 5
+            <input type="submit" id="submit-btn" style="height: 50px; width: 150px"/>
+        </form>
+    </section>
+    <section class="address">
+        <h2 class="header, third, contact">Contact</h2>
+        <p>Call us at: <a href="tel:+15555551212">1-555-555-1212</a></p>
+        <address>
+            CSS Corner Cafe<br />
+            101 W Main St<br />
+            Bellevue, WA 98004
+        </address>
+    </section>
+</body>
+</html>

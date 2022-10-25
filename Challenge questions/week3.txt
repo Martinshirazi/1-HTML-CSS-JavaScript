@@ -1,0 +1,73 @@
+Question #1: 
+Aside from Math.floor and Math.random, name at least one more function/method of the Math global object, along with example code on how to use it. 
+
+Math.ceil() rounds the number up to its nearest integer > integer = Math.ceil(4.2); integer = 5
+Math.sqrt() returns the square root of the number > sqrt = Math.sqrt(9); sqrt = 3 
+
+Question #2:
+What happens if you try to compare a numeric string and a number, and why? For example:
+
+'5' > 3
+JavaScript converts strings into number (if possible) if there is any comparison between a number and string is ordered. this statement is only valid about numerical strings not alphabetical 
+
+
+Question #3
+
+You have learned how to use the addition assignment operator += with numbers. What happens if you use it with strings? Provide a code example along with what its output would be. 
+
+Since the type of a STRING and a NUMBER are different, in addition assignment, JavaScript treats them as two separate items that needs to be concatenated like this:
+var b = 5;
+    b += '5'		result = 55 (string '5' converted to number but stll treated as a string and concatenated with 5)
+			
+
+ 
+Question #4
+You've learned about converting values to Boolean data type using the Boolean() function or the !! operator. How would you convert a value to a string in JavaScript? How would you convert a value to a number? Provide code examples. (Note: There are at least two ways to convert a value to a number in JavaScript. Try to give at least two answers.)
+Value to string								
+Method #1:                                
+String(Value); 
+Method #2:
+JSON.stringify(value)
+Method #3:
+value.tostring();
+
+Value to Number(Value has to have a form of numerical value, like '123'):
+Method #1:
+parseInt(Value); 
+Method #2:
+Number(value);
+Method 3:
++value;
+Method #4:
+Math.floor(value)
+
+Question #5
+ It is also possible to place <script> elements inside the head of an HTML page, but typically the best practice is to add them to the bottom of the body. Conduct your own research and find out what happens if you place <script> elements in the head, and provide a reason why this is not recommended. 
+HTML loads line by line from top to bottom and being run. having a script block early in the page has multiple effects, it may slow down the rendering time, or depends on the type of code, by the time script is being run, the rest of the code needed for that script may not be loaded yet and it causes bad loading behaviors.
+there is also some places that you may need to place your script block upper in your code like tracking blocks. if they be at the very bottom of the page, it may not be able to track the user interactions if user leaves the page soon.
+
+Question #6
+There are two ways to add comments to JavaScript: block comments and line comments. Provide examples of both ways.
+block comments:
+/* here is an example of a block comment*/
+inline comment:
+//here is an example of an inline comment
+
+Question #7
+Research at least one array method that has not been discussed yet and present it in your answer. Explain what it does and provide sample code to demonstrate how to use it. 
+array1 = [a, b, c, d, e, f]
+array2= [g, h, i, j, k, l,]
+example#1 :  delete array1[3]   this method deletes a desired index from an array.
+example#2 :  concArray = array1.conct(array2)  this method concatenate 2 arrays together.
+
+
+Question #8
+What is the meaning of NaN (Not a Number) in JavaScript, and how is it used?
+it means the value of the result you are looking for is not a valid/legal number. for example let test = 25 * 'table', answer would be NaN. 
+
+isNaN as a function can be used to determine if a value is/not a number like: let test = 25 * 'table'; isNaN(test) =>> true
+if NaN be used as a value for a variable, and that variable be used in a mathematical operation, the result still will be NaN!.
+
+"NaN is a number type"
+
+

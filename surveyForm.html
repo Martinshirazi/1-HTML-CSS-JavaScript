@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="css/survey.css" />
+</head>
+<body>
+    <h1>Survey</h1>
+    <form class="survey-form" action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="post">
+        <fieldset>
+            <legend>Your Information</legend>
+            <div>
+                <label for="firstname">First Name: </label>
+                <input type="text" id="firstname" name="firstname" placeholder="Your First Name" />
+            </div>
+            <div>
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Your Last Name" />
+            </div>
+            <div>
+                <label for="dateofbirth">Date of Birth:</label>
+                <input type="text" id="dateofbirth" name="dateofbirth" placeholder="Your Date of Birth" />
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" />
+                <!-- here we used input type of "email" which it's not covered yet by the instructor yet-->
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Survey Questions</legend>
+            <div>
+                Favorite Sport:
+                <input type="radio" id="baseball" name="sport" value="baseball" /> 
+                <label for="baseball">Baseball</label>
+                <input type="radio" id="rugby" name="sport" value="rugby" /> 
+                <label for="rugby">Rugby</label>
+                <input type="radio" id="snowboarding" name="sport" value="snowboarding" /> 
+                <label for="snowboarding">Snowboarding</label>
+            </div>
+            <div>
+                Your pets:
+                <input type="checkbox" id="cat" name="pets" value="cat" /> 
+                <label for="cat">Cat</label>
+                <input type="checkbox" id="dog" name="pets" value="dog" />
+                <label for="dog">Dog</label>
+                <input type="checkbox" id="bird" name="pets" value="Bird" />
+                <label for="bird">Bird</label>
+                <input type="checkbox" id="turtle" name="pets" value="turtle" />
+                <label for="turtle">Turtle</label>
+            </div>
+        </fieldset>
+        <input type="submit" value="Submit" id="submit-btn" />
+    </form>
+    
+</body>
+</html>

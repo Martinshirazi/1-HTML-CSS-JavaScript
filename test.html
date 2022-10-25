@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Form Example</title>
+</head>
+<body>
+    <form action="https://learn.nucamp.co/show_everything.php" method="post">
+        Enter your avatar name:
+        <label>
+            <input type="text" name="avatarName" placeholder="Avatar Name" />
+        </label>
+        <!-- single checkbox input example-->
+        <div>
+            Delivery? <label>
+            <input type="checkbox" name="delivery" />
+        </label>
+        </div>
+
+        <!--Multiple checkbox inputs-->
+        <div>
+            Milk <label>
+            <input type="checkbox" name="groceries" value="milk" />
+        </label>
+            Eggs <label>
+            <input type="checkbox" name="groceries" value="eggs" />
+        </label>
+            Bread <label>
+            <input type="checkbox" name="groceries" value="Bread" />
+        </label>
+        </div>
+
+        <!-- Group of Radio inputs-->
+        <div>
+            Pay by Cash <label>
+            <input type="radio" name="payment" value="cash" required />
+        </label>
+            Pay by Check <label>
+            <input type="radio" name="payment" value="check" required />
+        </label>
+        </div>
+        <input type="submit" value="Go" />
+        <!--name: required, single word, tells server what the data is-->
+        <!--Value: default value to submit, also used for submit button text-->
+        <!--placeholder is a hint text to user about what to enter-->
+        <!--REQUIRED: Boolean, inputs with this attribute must be given a value before the form can be submitted-->
+    </form>
+</body>
+</html>

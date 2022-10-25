@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Guessing Game</title>
+<style>
+body {
+    font-family: Italianno, Cambria, Tahoma, Arial, sans-serif;
+    background-color: rgb(225, 223, 221);
+    text-align: center;
+
+
+}
+.list {
+    line-height: 30px;
+    text-shadow: 1px 1px 2px black;
+    text-align: left;
+    
+}
+h1 {
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+}
+div {
+    text-shadow: 1px 1px 2px black;
+}
+button {
+    margin: 25px;
+    border-radius: 20px;
+    font-size: 15px; width: 150px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
+    background-color: rgb(234, 186, 115);
+}
+p {
+    text-align: center;
+    margin-top: 200px;
+    
+}
+
+</style>
+</head>
+<body>
+    <h1>Color Guessing Game</h1>
+    <button class="l1" onclick="runGame()">Start Game</button>
+    
+    <div>
+        <h3>Welcome to My Game! here is a short instrcution of how this game works.</h3>
+        
+        <ul class="list">
+            <li>
+                First you will be prompted by a list of colors.
+            </li>
+            <li>
+                A random color will be picked by me, and you need to guess that.
+            </li>
+            <li>
+                During the game you will be helped by my hints ;)...DON'T GIVE UP!
+            </li>
+            <li>
+                If you manage to guess the Color correctly, I will change you background to the choice of your color.
+            </li>
+        </ul>
+    </div>
+    <div>
+        <p>
+            Thank you for Playing the game. Enjoy your day!
+        </p>
+    </div>
+    <script>
+
+        const COLORS_ARRAY = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+            
+        function runGame() {
+            
+            let correct = false;
+            let guess = "";
+            let numTries = 0;
+            let targetIndex = (Math.floor(Math.random() * COLORS_ARRAY.length));
+            let target = COLORS_ARRAY[targetIndex];
+            let sortedArray = COLORS_ARRAY.sort();  //Bonus challenge.
+            console.log(target);
+        
+                do {
+                    guess = prompt("I am thinking of one of these colors:\n\n" + sortedArray.join(', ') + "\n\nWhat color am I thinking of?\n");
+                    
+                    numTries ++;
+                        
+                        if (guess === null) {
+                            alert("This game has been aborted\n");
+                            return;
+                        }
+                        correct = checkGuess(guess.toLowerCase(), target, numTries); //Bonus challenge
+                } while (!correct);
+                
+            alert("Congradulations! You have guessed the color right!\n\nIt took you " + numTries + " attempts to finish the game!\n\nHit OK to see the color in the background\n");
+            document.body.style.background = guess;
+        }
+
+        function checkGuess(guess, target, numTries) {
+           console.log(numTries);
+            let correct = false;
+            
+                if (!COLORS_ARRAY.includes(guess)) {
+                    alert("Sorry, I don't recognize your color.\n\nPlease try again.\n Number of attempts: " + numTries)//bonus challenge
+               
+                }else if (guess > target) {
+                    alert("Sorry, your guess is incorrect.\n\nHint: Your Color is alphabetically higher than mine.\n\nPlease try again.\nNumber of attempts: " + numTries);
+                
+                }else if (guess < target) {
+                    alert("Sorry, your guess is incorrect.\n\nHint: Your Color is alphabetically lower than mine.\n\nPlease try again.\nNumber of attempts: " + numTries);
+               
+                }else correct = true;
+           
+                return correct;
+        }
+        
+    </script>
+    
+</body>
+</html>

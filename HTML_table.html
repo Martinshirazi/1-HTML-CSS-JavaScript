@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HTML Table</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <table>
+            <thead>
+                <th>First column</th>
+                <th>Second column</th>
+                <th>Third column</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sample 1</td>
+                    <td>Sample 2</td>
+                    <td>Sample 3</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Sample 4</td>
+                    <td>Sample 5</td>
+                    <td>Sample 6</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th rowspan="2">Sample 1 took Sample 4's space</th>
+                    <td>Sample 2</td>
+                    <td>Sample 3</td>
+                </tr>
+                <tr>
+                    <td>Sample 5</td>
+                    <td>Sample 6</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <th colspan="2">Sample 1 took Sample 2's space</th>
+                    <td>Sample 2</td>
+                </tr>
+                <tr>
+                    <td>Sample 4</td>
+                    <td>Sample 5</td>
+                    <td>Sample 6</td>
+                </tr>
+            </tbody>
+        </table>
+       
+        <script src="" async defer></script>
+    </body>
+</html>
