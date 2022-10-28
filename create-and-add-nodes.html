@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create and Add Nodes Demo</title>
+    <style>
+        p {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <p id="firstP" onclick="insertNewElement()">Click this text to insert a new hr element to the page</p>
+
+    <p id="secondP" onclick="insertNewText()">Click this text to append a new text child node to the page</p>
+
+    <Script>
+        function insertNewElement() {
+            const newEl = document.createElement('hr');
+            const parentNode = document.querySelector("#firstP");
+            parentNode.insertBefore(newEl, parentNode.firstChild);
+        }
+        function insertNewText() {
+            const newText = document.createTextNode(" This is dynamically added Text!");
+            const parentNode = document.getElementById("secondP");
+            parentNode.appendChild(newText);
+            
+        }
+    </Script>
+</body> 
+</html>

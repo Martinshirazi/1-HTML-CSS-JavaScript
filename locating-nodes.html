@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Locating Nodes Demo</title>
+    <style>
+        p {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Locating Nodes Demo</h1>
+    <p id="textToChange">Click on a button to change the color of this text.</p>
+    <button type="button" onclick="changeColor1()">Use DOM traversal</button>
+    <button type="button" onclick="changeColor2()">Use getElementsByTagName</button>
+    <button type="button" onclick="changeColor3()">Use getElementById</button>
+    <button type="button" onclick="changeColor4()">Use querySelector</button>
+
+    <script>
+        function changeColor1() {
+            document.childNodes[1].childNodes[2].childNodes[3].style.color = 'red';
+        }
+
+        function changeColor2() {
+            document.getElementsByTagName('p')[0].style.color = 'orange';
+        }
+
+        function changeColor3() {
+            document.getElementById('textToChange').style.color = 'blue';
+        }
+
+        function changeColor4() {
+            document.querySelector('#textToChange').style.color = 'green';
+            
+            //this lines added later for demonstration and practice, it is targeting a "button" element after a "P" element. This method only targets the first element if finds.
+            document.querySelector("p + button").style.background = "blue";
+           
+            //if you want to affect all the elements that match a query selector, use ---querySelectorALL()--- method.
+
+            //There are html or CSS attributes that can be accessed and used directly from JS. for ex, here --.style.color-- OR we can use even functional attributes like this:
+            document.querySelector("p + button").hidden= true; //this makes the first element with charectristic of a BUTTON right after a P element hidden. if you leave both lines available, both will be effective.
+        }
+    </script>
+</body>
+</html>
