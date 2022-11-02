@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matching Game</title>
+    <style>
+    img {
+        position: absolute;
+    }
+    #leftSide {
+        font-weight: bolder;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 10px; 
+        padding: 5px;
+        background-color: rgb(44, 103, 191);
+     }
+     #rightSide {
+        left: 500px;
+        margin-left: 20px;
+        font-weight: bolder;
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 10px; 
+        padding: 5px;
+        background-color: rgb(44, 103, 191);
+    }
+  
+    </style>
+</head>
+<body onload="generateFaces()">
+    <h1>Matching Game</h1>
+    <h4>"Please select the extra smiling face in the left container"</h4>
+
+    <div id="leftSide" ></div>
+    <div id="rightSide"></div>
+    <script>
+        let numberOfFaces = 5;
+        const theLeftSide = document.getElementById("leftSide");
+        const theRightSide = document.getElementById("rightSide");
+        let numOfTries = 0;
+        function generateFaces() {
+            for (let i = 0; i < numberOfFaces; i++) {
+            let face = document.createElement("img");
+                face.src = "./images/smile.png"
+
+            let randomTop = Math.floor(Math.random() * 400) +1;
+            let randomLeft = Math.floor(Math.random() * 400) +1;
+            
+            face.style.top = randomTop + 'px'
+            face.style.left = randomLeft + 'px'
+            
+                theLeftSide.appendChild(face);
+        }
+        const leftSideImages = theLeftSide.cloneNode(true);
+              leftSideImages.removeChild(leftSideImages.lastChild);
+    
+        theRightSide.appendChild(leftSideImages);
+        theLeftSide.lastElementChild.addEventListener('click', nextLevel)
+        document.body.addEventListener('click',gameOver)
+
+    }
+    function nextLevel(event){
+        event.stopPropagation()
+        numberOfFaces += 1
+        numOfTries++;
+        while (theLeftSide.firstChild) {
+            theLeftSide.removeChild(theLeftSide.lastChild)
+        }
+        while (theRightSide.firstChild) {
+            theRightSide.removeChild(theRightSide.lastChild)
+        }
+        generateFaces()
+    }
+
+    function gameOver(){
+        alert("Game Over!\n\nYou have tried " + numOfTries + " times")
+        removeEventListener('click',gameOver)
+        removeEventListener('click', nextLevel)
+        let faces = document.querySelectorAll("img")
+        for(let i = 0;i < faces.length;i++){
+            faces[i].remove()
+        }
+        let reloadBtn = confirm("Do you want to play more?")
+        if (reloadBtn){
+            numberOfFaces = 5
+        generateFaces()
+        }
+        else {
+            alert("Thanks for Playing");
+               
+        }  
+      
+    }
+  
+   
+    </script>
+</body>
+</html>
